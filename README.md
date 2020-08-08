@@ -23,6 +23,6 @@ I did some DOM manipulation, by adding a [premade graph](https://www.chartjs.org
 ```
 let test = `<canvas id="Chart1" width="400" height="400"></canvas>`; //creating the canvas
 
-document.getElementById("firstHeading").innerHTML += test; ::injecting the canvas in the html file
+document.getElementById("firstHeading").innerHTML += test; //injecting the canvas in the html file
 ```
 
