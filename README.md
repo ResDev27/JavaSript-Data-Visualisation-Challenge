@@ -19,7 +19,7 @@ This consolidation challenge will help you assess your ability to solve a proble
 
 you can find the entire challenge debriefing [here](Challenge-Briefing.md)
 
-# 1st step
+# Step *One*
 
 I injected my script.js in the HTML file and tested it to see if the script.js was well linked.
 
@@ -38,6 +38,25 @@ let test = `<canvas id="Chart1" width="400" height="400"></canvas>`; //creating 
 
 document.getElementById("firstHeading").innerHTML += test; //injecting the canvas in the html file
 ```
+
+I encountered a problem, I could't add the graphic to the desired location.
+I later found out that the problem was with the &lt;span&gt; tag.   
+
+I solved the problem by creating a new variable that would call for the id of the desired location and creating a new element in desired location.
+
+```
+let police = "Crimes_et_d.C3.A9lits_enregistr.C3.A9s_par_les_services_de_police";
+
+let newParagraph = document.createElement("p");
+
+document.getElementById(police).appendChild(newParagraph);
+
+newParagraph.innerHTML = test;
+```
+
+# Step *Two*
+
+
 
 ## Evaluation
 The evaluation method chosen is a **self-evaluation** based on the following indicators:

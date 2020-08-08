@@ -1,6 +1,13 @@
 let test = `<canvas id="Chart1" width="400" height="400"></canvas>`;
 
-document.getElementById("firstHeading").innerHTML += test;
+let police = "Crimes_et_d.C3.A9lits_enregistr.C3.A9s_par_les_services_de_police";
+
+let newParagraph = document.createElement("p");
+
+
+document.getElementById(police).appendChild(newParagraph);
+
+newParagraph.innerHTML = test;
 
 
 let ctx = document.getElementById("Chart1");
