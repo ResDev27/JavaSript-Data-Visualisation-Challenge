@@ -28,12 +28,12 @@ I choosed to work with [chart.js](https://www.chartjs.org/ ) since I am a beginn
 I then choosed to use the CDN method in order to be abble to use [chart.js](https://www.chartjs.org/ ).
 
 Here's the link i used to use the library 
-```
+``` html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" integrity="sha512-QEiC894KVkN9Tsoi6+mKf8HaCLJvyA6QIRzY5KrfINXYuP9NxdIkRQhGq3BZi0J4I7V5SidGM3XUQ5wFiMDuWg==" crossorigin="anonymous"></script>
 ```
 
 I did some DOM manipulation, by adding a [premade graph](https://www.chartjs.org/docs/latest/getting-started/usage.html) into the HTML file. You can see bellow, a snippet of the method that I used to be abble to see if my setup was ok.
-```
+``` javascript
 let test = `<canvas id="Chart1" width="400" height="400"></canvas>`; //creating the canvas
 
 document.getElementById("firstHeading").innerHTML += test; //injecting the canvas in the html file
@@ -44,7 +44,7 @@ I later found out that the problem was with the &lt;span&gt; tag.
 
 I solved the problem by creating a new variable that would call for the id of the desired location and creating a new element in desired location.
 
-```
+``` javascript
 let police = "Crimes_et_d.C3.A9lits_enregistr.C3.A9s_par_les_services_de_police";
 
 let newParagraph = document.createElement("p");
