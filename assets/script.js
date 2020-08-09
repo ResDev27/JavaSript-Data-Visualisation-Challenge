@@ -24,3 +24,5 @@ newParagraph2.innerHTML = chartValue2;
 
 document.getElementById(homicide).appendChild(newParagraph3);
 newParagraph3.innerHTML = chartValue3;
+
+
