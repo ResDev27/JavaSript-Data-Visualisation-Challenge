@@ -42,7 +42,7 @@ document.getElementById("firstHeading").innerHTML += test; //injecting the canva
 I encountered a problem, I could't add the graphic to the desired location.
 I later found out that the problem was with the &lt;span&gt; tag.   
 
-I solved the problem by creating a new variable that would call for the id of the desired location and creating a new element in desired location.
+I solved the problem by creating a new variable that would call for the id of the desired location and creating a new element in desired location.  
 
 ``` javascript
 let police = "Crimes_et_d.C3.A9lits_enregistr.C3.A9s_par_les_services_de_police";
@@ -52,12 +52,15 @@ let newParagraph = document.createElement("p");
 document.getElementById(police).appendChild(newParagraph);
 
 newParagraph.innerHTML = test;
-```
+```  
+
+I duplicated this method three times to define the emplacement of each charts. 
+
 
 # Step *Two*
 
 
-I chose to start with the last data table which seemed to me to be the easiest to process given the small amount of data it contained
+I chose to start with the last data table which seemed to me to be the easiest to process given the small amount of data it contained.
 
 
 

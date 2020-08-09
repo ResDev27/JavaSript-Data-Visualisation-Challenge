@@ -1,49 +1,26 @@
-let test = `<canvas id="Chart1" width="400" height="400"></canvas>`;
+/*
+    code line to add if you want chart to be drawn after a span tag inner html
+*/
 
+let chartValue1 = `<canvas id="chart1" width="400" height="400"></canvas>`;
+let chartValue2 = `<canvas id="chart2" width="400" height="400"></canvas>`;
+let chartValue3 = `<canvas id="chart3" width="400" height="400"></canvas>`;
+
+// Which id is used when getting elements
+let titre = "firstHeading";
 let police = "Crimes_et_d.C3.A9lits_enregistr.C3.A9s_par_les_services_de_police";
+let homicide = "Homicides";
 
-let newParagraph = document.createElement("p");
+// Use of a new paragraph containing the charts
+let newParagraph1 = document.createElement('p');
+let newParagraph2 = document.createElement('p');
+let newParagraph3 = document.createElement('p');
 
+document.getElementById(titre).appendChild(newParagraph1); // appendChild = After the selected element
+newParagraph1.innerHTML = chartValue1;
 
-document.getElementById(police).appendChild(newParagraph);
+document.getElementById(police).appendChild(newParagraph2);
+newParagraph2.innerHTML = chartValue2;
 
-newParagraph.innerHTML = test;
-
-
-let ctx = document.getElementById("Chart1");
-let myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
+document.getElementById(homicide).appendChild(newParagraph3);
+newParagraph3.innerHTML = chartValue3;
