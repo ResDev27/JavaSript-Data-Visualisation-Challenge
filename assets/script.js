@@ -28,6 +28,269 @@ newParagraph3.innerHTML = chartValue3;
 
 
 
+/* 1st Chart */
+
+var dataPoints = [];
+$.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=10&length=10&type=json", function(data) {  // Ajax method get, 
+    $.each(data, function(key, value){
+        dataPoints.push({x: value[0], y: parseInt(value[1])});
+    });
+    
+    var firstChart = document.getElementById('chart1');
+    var myFirstChart = new Chart(firstChart, {
+        type: 'line',
+        data: {
+            datasets: [
+                {
+                    data: dataPoints,
+                    label: 'Random Datas',
+                    borderColor: '#C02080',
+                    fill: false,
+                }]
+        }
+    })
+    updateChart();
+});
+
+
+function addData() {
+    dataPoints.push({
+        x: parseInt(value[0]),
+        y: parseInt(value[1])
+    });
+    chart.update();
+}
+
+
+function updateChart() {
+    $.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart=" + (dataPoints.length + 1) + "&ystart=" + (dataPoints[dataPoints.length - 1].y) + "&length=1&type=json", function(data) {
+        $.each(data, function(key, value) {
+            addData()
+        });
+    setTimeout(function(){updateChart()}, 1000);
+});
+}
+
+
+
+
+
+
+
+
+
+
+/* 2nd Chart */
+let tableChart2 = document.getElementById("table1");
+
+const headersChart2 = [];
+const countryChart2 = [];
+const dateCharts2 = [];
+const jsonChart2 = [];
+
+for (let x = 2; x < tableChart2.rows.length; x++)
+    {
+        countryChart2[x] = tableChart2.rows[x].cells[1].innerHTML;
+    }
+
+for (let x = 0; x < tableChart2.rows[0].cells.length; x++)
+    {
+        headersChart2[x] = tableChart2.rows[0].cells[x].innerHTML;
+    }
+
+for (let x = 2; x < tableChart2.rows[1].cells.length; x++)
+    {
+        dateCharts2[x] = tableChart2.rows[1].cells[x].innerHTML
+        .replace(/\n/g, '')
+        .replace(/<div>/g, '')
+        .replace(/<\/div>/g, '')
+        .replace(/<br>/g, ' ')
+        .replace(/\s/g, '');
+    }
+
+for (let x = 2; x < tableChart2.rows.length; x++)
+    {
+        let tableRow1 = tableChart2.rows[x];
+        let rowValues1 = {};
+            for (let y = 0; y < tableRow1.cells.length; y++)
+                {
+                    rowValues1[dateCharts2[y]] = tableRow1.cells[y].innerHTML;
+                }
+        jsonChart2.push(rowValues1);
+    }
+
+const countryList1 = jsonChart2.map(function (f)
+    {
+        return f.undefined;
+    } 
+);
+
+const year2002 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2002"]);
+    }
+);
+const year2003 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2003"]);
+    }
+);
+const year2004 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2004"]);
+    }
+);
+const year2005 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2005"]);
+    }
+);
+const year2006 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2006"]);
+    }
+);
+const year2007 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2007"]);
+    }
+);
+const year2008 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2008"]);
+    }
+);
+const year2009 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2009"]);
+    }
+);
+const year2010 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2010"]);
+    }
+);
+const year2011 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2011"]);
+    }
+);
+const year2012 = jsonChart2.map(function (f) 
+    {
+        return parseInt(f["2012"]);
+    }
+    );
+    
+var secondChart = document.getElementById('chart2');
+var mySecondChart = new Chart(secondChart, {
+    type: 'bar',
+    data: {
+        labels: countryList1,
+        datasets: [
+            {
+                label: "2002",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(120,60,60, 0.5)",
+                borderColor: "#C06060",
+                data: year2002,
+            },
+            {
+                label: "2003",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(120,90,90, 0.5)",
+                borderColor: "#C09090",
+                data: year2003,
+            },
+            {
+                label: "2004",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(60,120,60, 0.5)",
+                borderColor: "#60C060",
+                data: year2004,
+            },
+            {
+                label: "2005",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(90,120,90, 0.5)",
+                borderColor: "#90C090",
+                data: year2005,
+            },
+            {
+                label: "2006",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(60,60,120, 0.5)",
+                borderColor: "#6060C0",
+                data: year2006,
+            },
+            {
+                label: "2007",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(90,90,120, 0.5)",
+                borderColor: "#9090C0",
+                data: year2007,
+            },
+            {
+                label: "2008",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(120,60,120, 0.5)",
+                borderColor: "#C060C0",
+                data: year2008,
+            },
+            {
+                label: "2009",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(120,90,120, 0.5)",
+                borderColor: "#C090C0",
+                data: year2009,
+            },
+            {
+                label: "2010",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(60,120,120, 0.5)",
+                borderColor: "#60C0C0",
+                data: year2010,
+            },
+            {
+                label: "2011",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(90,120,120, 0.5)",
+                borderColor: "#90C0C0",
+                data: year2011,
+            },
+            {
+                label: "2012",
+                borderWidth: 1,
+                lineTension: 0,
+                showLines: false,
+                backgroundColor: "rgba(90,60,90, 0.5)",
+                borderColor: "#906090",
+                data: year2012,
+            },
+        ]
+    }
+});
+
+
 
 
 
